@@ -33,7 +33,7 @@ export function Footer() {
                 href={site.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border border-white/20 p-2.5 transition-colors hover:border-brand-400 hover:text-brand-300"
+                className="rounded-full border border-white/20 p-3 transition-colors hover:border-brand-400 hover:text-brand-300"
               >
                 <span className="sr-only">Instagram da SBE</span>
                 <Icon name="instagram" className="size-5" />
@@ -42,7 +42,7 @@ export function Footer() {
                 href={site.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border border-white/20 p-2.5 transition-colors hover:border-brand-400 hover:text-brand-300"
+                className="rounded-full border border-white/20 p-3 transition-colors hover:border-brand-400 hover:text-brand-300"
               >
                 <span className="sr-only">Facebook da SBE</span>
                 <Icon name="facebook" className="size-5" />
@@ -51,7 +51,7 @@ export function Footer() {
                 href={whatsappLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border border-white/20 p-2.5 transition-colors hover:border-brand-400 hover:text-brand-300"
+                className="rounded-full border border-white/20 p-3 transition-colors hover:border-brand-400 hover:text-brand-300"
               >
                 <span className="sr-only">WhatsApp da SBE</span>
                 <Icon name="whatsapp" className="size-5" />
@@ -66,7 +66,7 @@ export function Footer() {
                 <ul className="mt-4 space-y-2.5">
                   {group.items.map((item) => (
                     <li key={item.href}>
-                      <Link href={item.href} className="text-deep-200 transition-colors hover:text-brand-300">
+                      <Link href={item.href} className="inline-flex min-h-10 items-center text-deep-200 transition-colors hover:text-brand-300">
                         {item.label}
                       </Link>
                     </li>
@@ -78,7 +78,7 @@ export function Footer() {
             <div className="sm:col-span-2 lg:col-span-3">
               <h2 className="text-sm font-bold tracking-wide text-white uppercase">Onde estamos</h2>
               <div className="mt-4 grid gap-4 text-deep-200 sm:grid-cols-2 lg:grid-cols-3">
-                <a href={site.address.mapsUrl} target="_blank" rel="noopener noreferrer" className="flex gap-3 hover:text-brand-300">
+                <a href={site.address.mapsUrl} target="_blank" rel="noopener noreferrer" className="flex min-h-10 gap-3 py-1 hover:text-brand-300">
                   <Icon name="pin" className="mt-0.5 size-5 shrink-0 text-brand-400" />
                   <span>
                     {site.address.street}<br />
@@ -87,15 +87,15 @@ export function Footer() {
                   </span>
                 </a>
                 <div className="space-y-2.5">
-                  <a href={`tel:${site.phone.tel}`} className="flex items-center gap-3 hover:text-brand-300">
+                  <a href={`tel:${site.phone.tel}`} className="flex min-h-10 items-center gap-3 hover:text-brand-300">
                     <Icon name="phone" className="size-5 shrink-0 text-brand-400" />
                     {site.phone.display}
                   </a>
-                  <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-brand-300">
+                  <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="flex min-h-10 items-center gap-3 hover:text-brand-300">
                     <Icon name="whatsapp" className="size-5 shrink-0 text-brand-400" />
                     {site.whatsapp.display}
                   </a>
-                  <a href={`mailto:${site.email.general}`} className="flex items-center gap-3 hover:text-brand-300">
+                  <a href={`mailto:${site.email.general}`} className="flex min-h-10 items-center gap-3 hover:text-brand-300">
                     <Icon name="mail" className="size-5 shrink-0 text-brand-400" />
                     {site.email.general}
                   </a>
@@ -118,7 +118,7 @@ export function Footer() {
             © {new Date().getFullYear()} {site.legalName} · CNPJ {site.cnpj}
           </p>
           <p>
-            <Link href="/politica-de-privacidade" className="hover:text-brand-300">
+            <Link href="/politica-de-privacidade" className="inline-flex min-h-10 items-center hover:text-brand-300">
               Política de privacidade
             </Link>
           </p>

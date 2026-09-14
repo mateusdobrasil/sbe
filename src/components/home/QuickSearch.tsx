@@ -72,7 +72,7 @@ export function QuickSearch({ specialties }: { specialties: string[] }) {
               key={s}
               type="button"
               onClick={() => go(s)}
-              className="rounded-full bg-paper-alt px-3 py-1.5 text-sm font-medium text-deep-800 transition-colors hover:bg-brand-50 hover:text-brand-800"
+              className="inline-flex min-h-10 items-center rounded-full bg-paper-alt px-3.5 text-sm font-medium text-deep-800 transition-colors hover:bg-brand-50 hover:text-brand-800"
             >
               {s}
             </button>

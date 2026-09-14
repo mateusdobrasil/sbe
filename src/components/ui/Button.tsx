@@ -4,8 +4,13 @@ import { cn } from "@/lib/utils";
 type Variant = "primary" | "secondary" | "outline" | "ghost" | "onDark";
 type Size = "sm" | "md" | "lg";
 
+/*
+ * min-h-11 garante 44px de altura — a diretriz de alvo de toque da Apple e
+ * o nível AAA da WCAG 2.5.5. Importa especialmente aqui: boa parte de quem
+ * procura a SBE é idosa e usa o site pelo celular.
+ */
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-colors duration-150 disabled:opacity-60 disabled:pointer-events-none";
+  "inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-4 text-center font-semibold transition-colors duration-150 disabled:opacity-60 disabled:pointer-events-none";
 
 /* Cada par cor/fundo abaixo foi verificado em WCAG AA (mínimo 4.5:1). */
 const variants: Record<Variant, string> = {
@@ -19,7 +24,7 @@ const variants: Record<Variant, string> = {
 const sizes: Record<Size, string> = {
   sm: "px-4 py-2 text-sm",
   md: "px-5 py-2.5 text-[0.95rem]",
-  lg: "px-7 py-3.5 text-base",
+  lg: "min-h-13 px-7 py-3.5 text-base",
 };
 
 interface CommonProps {

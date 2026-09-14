@@ -126,9 +126,15 @@ export default async function TransparenciaPage() {
             Qualquer pessoa pode solicitar esclarecimentos sobre a aplicação dos recursos.
             Escrevemos de volta em até 10 dias úteis.
           </p>
-          <Button href={`mailto:${site.email.donations}`} variant="outline" className="mt-6">
-            <Icon name="mail" className="size-5" />
-            {site.email.donations}
+          {/* O rótulo é um e-mail de 29 caracteres: dentro de um flex ele não
+              quebra sozinho e estourava a caixa em telas de 320px. */}
+          <Button
+            href={`mailto:${site.email.donations}`}
+            variant="outline"
+            className="mt-6 max-w-full"
+          >
+            <Icon name="mail" className="size-5 shrink-0" />
+            <span className="min-w-0 break-all">{site.email.donations}</span>
           </Button>
         </div>
       </Section>

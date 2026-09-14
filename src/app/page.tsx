@@ -80,7 +80,7 @@ export default async function HomePage() {
             <Link
               key={s}
               href={`/rede-credenciada?especialidade=${encodeURIComponent(s)}`}
-              className="rounded-full border border-line px-3.5 py-1.5 text-sm font-medium text-ink-soft transition-colors hover:border-brand-300 hover:bg-brand-50 hover:text-brand-800"
+              className="inline-flex min-h-10 items-center rounded-full border border-line px-3.5 text-sm font-medium text-ink-soft transition-colors hover:border-brand-300 hover:bg-brand-50 hover:text-brand-800"
             >
               {s}
             </Link>

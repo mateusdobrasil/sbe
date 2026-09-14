@@ -46,16 +46,28 @@ export default async function SejaAssociadoPage() {
           description="A SBE atende os dois. A associação muda a prioridade, o tamanho do desconto e a cobertura da família."
         />
 
-        <div className="mt-12 overflow-x-auto">
-          <table className="w-full min-w-[38rem] border-collapse text-left">
+        {/*
+          A tabela tinha min-w-[38rem] dentro de um contêiner rolável: em 390px
+          a coluna "Associado" — o ponto inteiro da comparação — ficava fora da
+          tela, e nada indicava que dava para arrastar. Agora ela cabe: as
+          células quebram linha e o respiro diminui no celular.
+        */}
+        <div className="mt-12">
+          <table className="w-full table-fixed border-collapse text-left text-sm sm:text-base">
             <caption className="sr-only">
               Comparação entre o atendimento a não associados e a associados da SBE
             </caption>
             <thead>
               <tr className="border-b-2 border-line">
-                <th scope="col" className="py-4 pr-4 font-semibold text-ink">Benefício</th>
-                <th scope="col" className="px-4 py-4 font-semibold text-ink-soft">Não associado</th>
-                <th scope="col" className="px-4 py-4 font-semibold text-brand-800">Associado</th>
+                <th scope="col" className="w-[42%] py-3 pr-2 font-semibold text-ink sm:py-4 sm:pr-4">
+                  Benefício
+                </th>
+                <th scope="col" className="w-[29%] px-2 py-3 font-semibold text-ink-soft sm:px-4 sm:py-4">
+                  Não associado
+                </th>
+                <th scope="col" className="w-[29%] px-2 py-3 font-semibold text-brand-800 sm:px-4 sm:py-4">
+                  Associado
+                </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-line">
@@ -68,9 +80,9 @@ export default async function SejaAssociadoPage() {
                 ["Carência", "Não há", "Não há"],
               ].map(([benefit, without, withPlan]) => (
                 <tr key={benefit}>
-                  <th scope="row" className="py-4 pr-4 font-medium text-ink">{benefit}</th>
-                  <td className="px-4 py-4 text-ink-soft">{without}</td>
-                  <td className="px-4 py-4 font-semibold text-brand-800">{withPlan}</td>
+                  <th scope="row" className="py-3 pr-2 font-medium text-ink sm:py-4 sm:pr-4">{benefit}</th>
+                  <td className="px-2 py-3 text-ink-soft sm:px-4 sm:py-4">{without}</td>
+                  <td className="px-2 py-3 font-semibold text-brand-800 sm:px-4 sm:py-4">{withPlan}</td>
                 </tr>
               ))}
             </tbody>
@@ -91,7 +103,7 @@ export default async function SejaAssociadoPage() {
             <div
               key={plan.slug}
               className={cn(
-                "flex h-full flex-col rounded-2xl border bg-paper p-8",
+                "flex h-full min-w-0 flex-col rounded-2xl border bg-paper p-6 sm:p-8",
                 plan.highlight ? "border-2 border-brand-500 shadow-lg shadow-brand-900/5" : "border-line",
               )}
             >
@@ -107,8 +119,8 @@ export default async function SejaAssociadoPage() {
               )}
 
               <h3 className="text-2xl text-ink">{plan.name}</h3>
-              <p className="mt-4 flex items-baseline gap-2">
-                <span className="font-[family-name:var(--font-bricolage)] text-4xl font-extrabold text-ink">
+              <p className="mt-4 flex flex-wrap items-baseline gap-x-2 gap-y-1">
+                <span className="font-[family-name:var(--font-bricolage)] text-3xl font-extrabold text-ink sm:text-4xl">
                   {plan.price}
                 </span>
                 <span className="text-ink-mute">{plan.period}</span>

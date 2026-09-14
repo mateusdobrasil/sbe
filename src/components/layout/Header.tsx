@@ -69,7 +69,7 @@ export function Header() {
                       href={item.href}
                       aria-current={isActive(item.href) ? "page" : undefined}
                       className={cn(
-                        "rounded px-2.5 py-1 whitespace-nowrap transition-colors",
+                        "inline-flex min-h-8 items-center rounded px-2.5 whitespace-nowrap transition-colors",
                         isActive(item.href) ? "text-brand-300" : "hover:text-white",
                       )}
                     >
@@ -118,7 +118,7 @@ export function Header() {
             <Link
               href="/"
               aria-label="SBE — página inicial"
-              className="shrink-0 rounded-lg focus-visible:outline-offset-4"
+              className="flex min-h-11 shrink-0 items-center rounded-lg focus-visible:outline-offset-4"
             >
               {/* No celular o nome por extenso fica em corpo 8px e disputa
                   espaço com o botão Doar — ali vale só a marca. */}
@@ -180,7 +180,7 @@ export function Header() {
                 onClick={() => setOpen((v) => !v)}
                 aria-expanded={open}
                 aria-controls="menu-movel"
-                className="-mr-2 flex size-11 items-center justify-center rounded-full text-ink transition-colors hover:bg-paper-alt lg:hidden"
+                className="flex size-11 items-center justify-center rounded-full text-ink transition-colors hover:bg-paper-alt lg:hidden"
               >
                 <span className="sr-only">{open ? "Fechar menu" : "Abrir menu"}</span>
                 <svg

@@ -107,7 +107,7 @@ export function NetworkExplorer({ providers }: { providers: Provider[] }) {
             onClick={() => setSpecialty("")}
             aria-pressed={!specialty}
             className={cn(
-              "rounded-full px-3 py-1.5 text-sm font-medium transition-colors",
+              "inline-flex min-h-10 items-center rounded-full px-3.5 text-sm font-medium transition-colors",
               !specialty
                 ? "bg-deep-800 text-white"
                 : "bg-paper text-ink-soft hover:bg-brand-50 hover:text-brand-800",
@@ -124,7 +124,7 @@ export function NetworkExplorer({ providers }: { providers: Provider[] }) {
                 onClick={() => setSpecialty(s)}
                 aria-pressed={specialty === s}
                 className={cn(
-                  "rounded-full px-3 py-1.5 text-sm font-medium transition-colors",
+                  "inline-flex min-h-10 items-center rounded-full px-3.5 text-sm font-medium transition-colors",
                   specialty === s
                     ? "bg-deep-800 text-white"
                     : "bg-paper text-ink-soft hover:bg-brand-50 hover:text-brand-800",
@@ -154,7 +154,7 @@ export function NetworkExplorer({ providers }: { providers: Provider[] }) {
               setQuery("");
               setSpecialty("");
             }}
-            className="text-sm font-semibold text-brand-700 underline underline-offset-4 hover:text-brand-800"
+            className="inline-flex min-h-11 items-center text-sm font-semibold text-brand-700 underline underline-offset-4 hover:text-brand-800"
           >
             Limpar filtros
           </button>

@@ -76,7 +76,7 @@ export function LeadForm({
             href={whatsappLink()}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-deep-800 px-5 py-2.5 text-sm font-semibold text-white hover:bg-deep-700"
+            className="inline-flex min-h-11 items-center gap-2 rounded-full bg-deep-800 px-5 py-2.5 text-sm font-semibold text-white hover:bg-deep-700"
           >
             <Icon name="whatsapp" className="size-4" />
             Falar agora no WhatsApp
@@ -84,7 +84,7 @@ export function LeadForm({
           <button
             type="button"
             onClick={() => setStatus({ state: "idle" })}
-            className="text-sm font-semibold text-brand-700 underline underline-offset-4"
+            className="inline-flex min-h-11 items-center text-sm font-semibold text-brand-700 underline underline-offset-4"
           >
             Enviar outra mensagem
           </button>

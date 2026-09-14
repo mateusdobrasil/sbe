@@ -133,7 +133,7 @@ export default function ContatoPage() {
               href={site.address.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-2 font-semibold text-brand-700 hover:text-brand-800"
+              className="mt-3 inline-flex min-h-11 items-center gap-2 font-semibold text-brand-700 hover:text-brand-800"
             >
               <Icon name="pin" className="size-5" />
               Abrir rota no Google Maps
@@ -149,12 +149,12 @@ export default function ContatoPage() {
               <h2 className="text-2xl text-white">Siga a SBE nas redes</h2>
               <p className="mt-1.5 text-deep-100">Ações, mutirões e comunicados em primeira mão.</p>
             </div>
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-3">
               <a
                 href={site.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 rounded-full border-2 border-white/70 px-5 py-2.5 font-semibold hover:bg-white hover:text-deep-900"
+                className="inline-flex min-h-11 items-center gap-2.5 rounded-full border-2 border-white/70 px-5 py-2.5 font-semibold whitespace-nowrap hover:bg-white hover:text-deep-900"
               >
                 <Icon name="instagram" className="size-5" />
                 Instagram
@@ -163,7 +163,7 @@ export default function ContatoPage() {
                 href={site.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 rounded-full border-2 border-white/70 px-5 py-2.5 font-semibold hover:bg-white hover:text-deep-900"
+                className="inline-flex min-h-11 items-center gap-2.5 rounded-full border-2 border-white/70 px-5 py-2.5 font-semibold whitespace-nowrap hover:bg-white hover:text-deep-900"
               >
                 <Icon name="facebook" className="size-5" />
                 Facebook

@@ -88,7 +88,7 @@ export default async function NoticiaPage({ params }: Props) {
           <footer className="mt-12 border-t border-line pt-8">
             <Link
               href="/noticias"
-              className="inline-flex items-center gap-2 font-semibold text-brand-700 hover:text-brand-800"
+              className="inline-flex min-h-11 items-center gap-2 font-semibold text-brand-700 hover:text-brand-800"
             >
               <Icon name="arrow" className="size-5 rotate-180" />
               Todas as notícias

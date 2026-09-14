@@ -59,6 +59,14 @@
     text-wrap: pretty;
   }
 
+  /*
+   * Palavras longas sem espaço (e-mails, URLs, chaves PIX) estouravam a
+   * caixa em telas de 320px. break-word só quebra quando não há alternativa.
+   */
+  p, li, dd, dt, td, th, figcaption, blockquote, a {
+    overflow-wrap: break-word;
+  }
+
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     letter-spacing: -0.022em;

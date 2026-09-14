@@ -167,7 +167,7 @@ export function PixBox({ pixKey }: { pixKey: string }) {
           <button
             type="button"
             onClick={() => void copy(pixKey)}
-            className="text-sm font-semibold text-brand-700 underline underline-offset-4 hover:text-brand-800"
+            className="inline-flex min-h-11 items-center text-sm font-semibold text-brand-700 underline underline-offset-4 hover:text-brand-800"
           >
             Copiar chave
           </button>

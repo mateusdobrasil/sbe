@@ -150,7 +150,7 @@ export default function DoePage() {
               {way.href && (
                 <Link
                   href={way.href}
-                  className="mt-5 flex items-center gap-1.5 font-semibold text-brand-700 hover:text-brand-800"
+                  className="mt-4 inline-flex min-h-11 items-center gap-1.5 font-semibold text-brand-700 hover:text-brand-800"
                 >
                   {way.linkLabel}
                   <Icon name="arrow" className="size-4" />
