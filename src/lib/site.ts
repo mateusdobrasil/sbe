@@ -2,12 +2,56 @@
  * Configuração central da instituição.
  * Único lugar a alterar quando telefone, endereço ou redes mudarem.
  */
+
+const PRODUCTION_URL = "https://sbecuiaba.com.br";
+
+/** Descarta valores ausentes OU vazios. */
+function clean(value: string | undefined): string | undefined {
+  const trimmed = value?.trim();
+  return trimmed ? trimmed : undefined;
+}
+
+/**
+ * Resolve a URL pública do site.
+ *
+ * Uma variável definida como string vazia na Vercel não é capturada por `??`
+ * — e `new URL("")` derruba o build inteiro em `metadataBase`. Por isso a
+ * checagem é por valor, não por ausência.
+ *
+ * Em pré-visualizações, usa o domínio do próprio deploy para que links
+ * canônicos e imagens de compartilhamento apontem para a branch correta.
+ *
+ * As leituras de `process.env` são escritas com acesso estático de
+ * propriedade: é assim que o Next substitui `NEXT_PUBLIC_*` no bundle do
+ * cliente. Com índice dinâmico (`process.env[nome]`) a substituição não
+ * acontece e o valor chega vazio no navegador.
+ */
+function resolveSiteUrl(): string {
+  // VERCEL_ENV e VERCEL_URL não têm o prefixo NEXT_PUBLIC_: só existem no servidor.
+  const isPreview = clean(process.env.VERCEL_ENV) !== undefined
+    && clean(process.env.VERCEL_ENV) !== "production";
+
+  const candidate =
+    clean(process.env.NEXT_PUBLIC_SITE_URL) ??
+    (isPreview ? clean(process.env.VERCEL_URL) : undefined) ??
+    PRODUCTION_URL;
+
+  const withProtocol = /^https?:\/\//.test(candidate) ? candidate : `https://${candidate}`;
+
+  try {
+    return new URL(withProtocol).origin;
+  } catch {
+    // Valor malformado no ambiente: o build não pode cair por causa disso.
+    return PRODUCTION_URL;
+  }
+}
+
 export const site = {
   name: "SBE",
   legalName: "Sociedade Beneficente Evangélica",
   kind: "Organização da Sociedade Civil",
   tagline: "Cuidado em saúde ao alcance de quem precisa",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://sbecuiaba.com.br",
+  url: resolveSiteUrl(),
 
   // TODO SBE: confirmar CNPJ e data de fundação — não constam no site atual.
   cnpj: "00.000.000/0001-00",
