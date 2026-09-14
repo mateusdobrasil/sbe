@@ -1,6 +1,15 @@
-/** Concatena classes, ignorando valores falsos. */
+import { twMerge } from "tailwind-merge";
+
+/**
+ * Concatena classes resolvendo conflitos do Tailwind.
+ *
+ * Sem twMerge, passar "hidden" por cima de um componente cujo estilo base já
+ * tem "inline-flex" não funciona: quem vence é a ordem no CSS gerado, não a
+ * ordem no atributo class. Foi assim que o botão Agendar apareceu no celular
+ * e empurrou o menu hambúrguer para fora da tela.
+ */
 export function cn(...classes: Array<string | false | null | undefined>): string {
-  return classes.filter(Boolean).join(" ");
+  return twMerge(classes.filter(Boolean).join(" "));
 }
 
 export function formatDate(iso: string): string {

@@ -38,7 +38,7 @@ export function CookieConsent() {
     <div
       role="dialog"
       aria-label="Aviso de cookies"
-      className="fixed inset-x-3 bottom-3 z-50 rounded-2xl border border-line bg-paper p-5 shadow-xl sm:inset-x-auto sm:right-6 sm:bottom-24 sm:max-w-md"
+      className="flutuante fixed inset-x-3 bottom-3 z-50 rounded-2xl border border-line bg-paper p-5 shadow-xl sm:inset-x-auto sm:right-6 sm:bottom-24 sm:max-w-md"
     >
       <p className="text-sm leading-relaxed text-ink-soft">
         Usamos cookies essenciais para o funcionamento do site e, com sua permissão,

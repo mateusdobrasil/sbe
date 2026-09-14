@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
-import { mainNav } from "@/lib/nav";
+import { allNav } from "@/lib/nav";
 import { whatsappLink } from "@/lib/site";
 
 export default function NotFound() {
@@ -29,7 +29,7 @@ export default function NotFound() {
         <nav aria-label="Páginas do site" className="mt-12 border-t border-line pt-8">
           <h2 className="text-sm font-bold tracking-wide text-ink-mute uppercase">Páginas do site</h2>
           <ul className="mt-5 grid gap-2 sm:grid-cols-2">
-            {mainNav.map((item) => (
+            {allNav.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}

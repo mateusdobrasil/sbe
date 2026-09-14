@@ -80,6 +80,11 @@
 }
 
 @layer utilities {
+  /* Enquanto o menu do celular está aberto, nada flutua por cima dele. */
+  body[data-menu="aberto"] .flutuante {
+    display: none;
+  }
+
   /* Conteúdo de notícia vindo de Markdown ou do editor do Supabase. */
   .rich-text :where(p) { margin-block: 1.15em; line-height: 1.75; color: var(--color-ink-soft); }
   .rich-text :where(h2) { margin-block: 2em 0.6em; font-size: 1.5rem; color: var(--color-ink); }
