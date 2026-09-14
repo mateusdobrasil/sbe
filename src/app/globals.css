@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────────────────────────
+   Design system SBE
+   Âmbar: cor real da marca, extraída do logotipo.
+   Petróleo: par de confiança para saúde — usado em hero e rodapé.
+   Todos os pares de texto/fundo foram verificados em WCAG 2.1 AA.
+   ────────────────────────────────────────────────────────────── */
+@theme {
+  --color-brand-50:  #fef7ec;
+  --color-brand-100: #fdecd1;
+  --color-brand-200: #fad79f;
+  --color-brand-300: #f6bc63;
+  --color-brand-400: #f2a036;
+  --color-brand-500: #e08a0b;
+  --color-brand-600: #c06f06;
+  --color-brand-700: #9a5409;
+  --color-brand-800: #7d430f;
+  --color-brand-900: #683810;
+  --color-brand-950: #3c1c05;
+
+  --color-deep-50:  #ecf7f9;
+  --color-deep-100: #d0ecf1;
+  --color-deep-200: #a6d9e3;
+  --color-deep-300: #6dbccd;
+  --color-deep-400: #3a9ab0;
+  --color-deep-500: #17788c;
+  --color-deep-600: #116174;
+  --color-deep-700: #0e4c5a;
+  --color-deep-800: #0b3b46;
+  --color-deep-900: #082b33;
+  --color-deep-950: #041b21;
+
+  --color-ink:      #1c1917;
+  --color-ink-soft: #57534e;
+  --color-ink-mute: #78716c;
+  --color-line:     #e7e5e4;
+  --color-paper:    #ffffff;
+  --color-paper-alt:#faf9f7;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: var(--font-bricolage), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 1rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Compensa o cabeçalho fixo ao pular para uma âncora. */
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-wrap: pretty;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.022em;
+    text-wrap: balance;
+    font-weight: 700;
+  }
+
+  /* Foco visível e consistente — o site antigo não tinha nenhum. */
+  :focus-visible {
+    outline: 3px solid var(--color-brand-500);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: var(--color-brand-200);
+    color: var(--color-brand-950);
+  }
+}
+
+@layer utilities {
+  /* Conteúdo de notícia vindo de Markdown ou do editor do Supabase. */
+  .rich-text :where(p) { margin-block: 1.15em; line-height: 1.75; color: var(--color-ink-soft); }
+  .rich-text :where(h2) { margin-block: 2em 0.6em; font-size: 1.5rem; color: var(--color-ink); }
+  .rich-text :where(h3) { margin-block: 1.6em 0.5em; font-size: 1.2rem; color: var(--color-ink); }
+  .rich-text :where(ul) { margin-block: 1.15em; padding-left: 1.3em; list-style: disc; }
+  .rich-text :where(li) { margin-block: 0.4em; line-height: 1.7; color: var(--color-ink-soft); }
+  .rich-text :where(a) { color: var(--color-brand-700); text-decoration: underline; text-underline-offset: 3px; }
+  .rich-text :where(a:hover) { color: var(--color-brand-800); }
+  .rich-text :where(strong) { color: var(--color-ink); font-weight: 650; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}

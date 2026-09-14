@@ -1,0 +1,14 @@
+Coloque aqui os PDFs de prestação de contas referenciados em content/transparencia.json.
+
+Nomes esperados:
+  relatorio-anual-2025.pdf
+  demonstracoes-2025.pdf
+  relatorio-anual-2024.pdf
+  demonstracoes-2024.pdf
+  estatuto-social.pdf
+  ata-eleicao-diretoria.pdf
+  cnd-federal.pdf
+
+IMPORTANTE: remova de content/transparencia.json qualquer documento cujo PDF
+não exista. Um link de transparência que leva a erro 404 é pior do que não
+listar o documento.

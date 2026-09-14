@@ -23,14 +23,17 @@ function crc16(payload: string): string {
   return crc.toString(16).toUpperCase().padStart(4, "0");
 }
 
-/** O BR Code aceita apenas ASCII maiúsculo sem acentos nos campos de texto. */
+/**
+ * Os campos de texto do BR Code devem ser ASCII sem acentos.
+ * A caixa original é preservada — o padrão não exige maiúsculas e o nome do
+ * recebedor aparece exatamente assim na tela do app do banco.
+ */
 function sanitize(text: string, maxLength: number): string {
   return text
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/[^A-Za-z0-9 ]/g, "")
     .trim()
-    .toUpperCase()
     .slice(0, maxLength);
 }
 
