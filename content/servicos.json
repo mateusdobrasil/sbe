@@ -1,0 +1,88 @@
+{
+  "_nota": "A página /servicos-internos do site antigo não listava NENHUM serviço — apenas a frase 'temos os melhores profissionais esperando por você'. Este catálogo é uma proposta baseada na atuação declarada da SBE. Revisar e confirmar item a item.",
+  "services": [
+    {
+      "slug": "consultas-agendadas",
+      "name": "Consultas médicas agendadas",
+      "summary": "Atendimento com clínicos e especialistas na sede da SBE, com horário marcado.",
+      "description": "Agendamento por telefone ou WhatsApp, sem fila de espera presencial. Associados têm prioridade e valores reduzidos; não associados são atendidos mediante valor social.",
+      "icon": "stethoscope",
+      "category": "Saúde",
+      "price": "Valor social",
+      "howTo": [
+        "Entre em contato pelo WhatsApp ou telefone informando a especialidade desejada",
+        "Confirme data e horário com nossa recepção",
+        "Compareça com documento de identidade, CPF e cartão de associado (se houver)"
+      ]
+    },
+    {
+      "slug": "exames-laboratoriais",
+      "name": "Exames laboratoriais",
+      "summary": "Coleta na sede com resultados liberados pelos laboratórios credenciados.",
+      "description": "Hemograma, glicemia, colesterol, função renal e hepática, hormônios e demais exames de rotina, realizados em parceria com laboratórios da rede credenciada.",
+      "icon": "flask",
+      "category": "Saúde",
+      "price": "Até 35% de desconto",
+      "howTo": [
+        "Apresente o pedido médico na recepção",
+        "Agende a coleta — a maioria dos exames exige jejum",
+        "Retire o resultado na sede ou receba por e-mail"
+      ]
+    },
+    {
+      "slug": "exames-de-imagem",
+      "name": "Exames de imagem",
+      "summary": "Ultrassom, raio X, mamografia, tomografia e ressonância na rede credenciada.",
+      "description": "A SBE encaminha o beneficiário para as clínicas credenciadas com valores negociados bem abaixo do particular, sem carência e sem limite de uso.",
+      "icon": "scan",
+      "category": "Saúde",
+      "price": "Valores negociados",
+      "howTo": [
+        "Traga o pedido médico até a sede",
+        "Nossa equipe indica a clínica credenciada mais próxima de você",
+        "Agende diretamente com a clínica informando que é encaminhado pela SBE"
+      ]
+    },
+    {
+      "slug": "assistencia-familiar",
+      "name": "Assistência às famílias",
+      "summary": "Amparo a famílias em situação de vulnerabilidade e momentos de adversidade.",
+      "description": "Atendimento e acompanhamento de famílias que enfrentam dificuldades, com orientação, encaminhamento à rede pública e apoio material conforme disponibilidade.",
+      "icon": "users",
+      "category": "Assistência social",
+      "price": "Gratuito",
+      "howTo": [
+        "Procure a sede ou entre em contato pelo WhatsApp",
+        "Passe por uma escuta inicial com nossa equipe",
+        "Receba o encaminhamento adequado ao seu caso"
+      ]
+    },
+    {
+      "slug": "apoio-psicologico",
+      "name": "Apoio psicológico",
+      "summary": "Atendimento psicológico individual a valor social.",
+      "description": "Sessões com profissionais da rede credenciada, voltadas a pessoas que não têm condições de arcar com atendimento particular.",
+      "icon": "heart",
+      "category": "Apoio",
+      "price": "Valor social",
+      "howTo": [
+        "Solicite o agendamento pela recepção",
+        "A triagem define a frequência das sessões"
+      ]
+    },
+    {
+      "slug": "doacao-de-alimentos",
+      "name": "Cestas e doações",
+      "summary": "Distribuição de alimentos, roupas e itens de higiene a famílias cadastradas.",
+      "description": "As doações recebidas são convertidas em cestas básicas e itens essenciais, entregues a famílias previamente cadastradas e acompanhadas pela SBE.",
+      "icon": "basket",
+      "category": "Assistência social",
+      "price": "Gratuito",
+      "howTo": [
+        "Cadastre-se na sede apresentando comprovante de residência",
+        "Aguarde a avaliação socioeconômica",
+        "Acompanhe o calendário de entregas"
+      ]
+    }
+  ]
+}

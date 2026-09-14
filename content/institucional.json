@@ -1,0 +1,35 @@
+{
+  "_nota": "Missão, visão e valores transcritos literalmente da página /institucional. Estatísticas, história e diretoria são ESTRUTURA A PREENCHER — o site antigo não trazia nenhum desses dados.",
+  "mission": "Agregar valores, atender as necessidades dos seus Associados e não Associados, atuando com imparcialidade na defesa dos direitos e deveres sociais de forma direta ou em forma de gestão, não se cansando de fazer o bem, TUDO em nome do Senhor Jesus.",
+  "missionRef": "Efésios 2:10",
+  "vision": "Auxiliar o maior número de famílias dando amparo e assistência no momento das adversidades, sendo uma instituição de caridade de renome.",
+  "visionRef": "Filipenses 2:4",
+  "valuesRef": "Filipenses 4:8",
+  "values": [
+    { "name": "Verdade", "description": "Transparência em cada atendimento, cada conta e cada promessa feita a quem confia na SBE." },
+    { "name": "Honestidade", "description": "Nenhum recurso recebido toma destino diferente daquele que foi anunciado ao doador." },
+    { "name": "Justiça", "description": "Atendimento sem distinção de credo, origem ou condição social." },
+    { "name": "Pureza", "description": "Integridade na conduta de quem representa a instituição, dentro e fora dela." },
+    { "name": "Amor", "description": "O cuidado com a pessoa vem antes do procedimento. Ninguém é um número de senha." },
+    { "name": "Boa fama", "description": "A reputação construída em décadas é o patrimônio que permite continuar servindo." }
+  ],
+  "stats": [
+    { "value": "26", "label": "clínicas e laboratórios credenciados", "note": "em toda a Grande Cuiabá" },
+    { "value": "18", "label": "especialidades disponíveis", "note": "de consultas clínicas a ressonância" },
+    { "value": "Até 35%", "label": "de desconto em exames", "note": "sem carência e sem limite de uso" },
+    { "value": "TODO", "label": "famílias atendidas por ano", "note": "PREENCHER: número real da SBE" }
+  ],
+  "history": [
+    { "year": "TODO", "title": "Fundação da SBE", "text": "PREENCHER: como e por quem a Sociedade Beneficente Evangélica foi criada em Cuiabá." },
+    { "year": "TODO", "title": "Primeira sede própria", "text": "PREENCHER: marco da instalação na Av. dos Expedicionários, CPA IV." },
+    { "year": "TODO", "title": "Início do programa de convênios", "text": "PREENCHER: quando começou o Programa de Parceria na Assistência à Saúde." },
+    { "year": "Hoje", "title": "Uma rede credenciada em toda a capital", "text": "A SBE reúne 26 clínicas, laboratórios e hospitais parceiros, atendendo associados e não associados com valores acessíveis." }
+  ],
+  "leaders": [
+    { "name": "TODO — Nome do(a) presidente", "role": "Presidência", "term": "Gestão 2024–2027" },
+    { "name": "TODO — Nome", "role": "Vice-presidência", "term": "Gestão 2024–2027" },
+    { "name": "TODO — Nome", "role": "Diretoria financeira", "term": "Gestão 2024–2027" },
+    { "name": "TODO — Nome", "role": "Diretoria social", "term": "Gestão 2024–2027" },
+    { "name": "TODO — Nome", "role": "Conselho fiscal", "term": "Gestão 2024–2027" }
+  ]
+}

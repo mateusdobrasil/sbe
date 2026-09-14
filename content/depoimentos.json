@@ -1,0 +1,8 @@
+{
+  "_nota": "PLACEHOLDER — substituir por depoimentos reais com autorização de uso de imagem/nome. Depoimento inventado em site de instituição de caridade destrói confiança se descoberto.",
+  "testimonials": [
+    { "quote": "TODO — depoimento real de um associado sobre atendimento recebido.", "author": "Nome do associado", "role": "Associado desde 20XX" },
+    { "quote": "TODO — depoimento real de uma família atendida pela assistência social.", "author": "Nome", "role": "Atendida pelo programa social" },
+    { "quote": "TODO — depoimento real de uma clínica credenciada sobre a parceria.", "author": "Nome", "role": "Clínica credenciada" }
+  ]
+}

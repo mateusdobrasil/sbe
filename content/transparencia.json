@@ -1,0 +1,19 @@
+{
+  "_nota": "O site antigo prometia prestação de contas mas não publicava nenhum documento. Substitua os itens abaixo pelos PDFs reais em /public/documentos/ e remova os que não existirem. Um documento listado e não entregue é pior do que nenhum.",
+  "docs": [
+    { "title": "Relatório anual de atividades 2025", "year": 2025, "type": "Relatório anual", "file": "/documentos/relatorio-anual-2025.pdf", "size": "TODO" },
+    { "title": "Demonstrações financeiras 2025", "year": 2025, "type": "Demonstração financeira", "file": "/documentos/demonstracoes-2025.pdf", "size": "TODO" },
+    { "title": "Relatório anual de atividades 2024", "year": 2024, "type": "Relatório anual", "file": "/documentos/relatorio-anual-2024.pdf", "size": "TODO" },
+    { "title": "Demonstrações financeiras 2024", "year": 2024, "type": "Demonstração financeira", "file": "/documentos/demonstracoes-2024.pdf", "size": "TODO" },
+    { "title": "Estatuto social vigente", "year": 2022, "type": "Estatuto", "file": "/documentos/estatuto-social.pdf", "size": "TODO" },
+    { "title": "Ata de eleição da diretoria", "year": 2024, "type": "Ata", "file": "/documentos/ata-eleicao-diretoria.pdf", "size": "TODO" },
+    { "title": "Certidão negativa de débitos federais", "year": 2025, "type": "Certidão", "file": "/documentos/cnd-federal.pdf", "size": "TODO" }
+  ],
+  "allocation": [
+    { "label": "Atendimento em saúde", "percent": 62 },
+    { "label": "Assistência social e cestas", "percent": 21 },
+    { "label": "Manutenção da sede", "percent": 11 },
+    { "label": "Administrativo", "percent": 6 }
+  ],
+  "_notaAllocation": "PREENCHER com os percentuais reais da última demonstração financeira."
+}

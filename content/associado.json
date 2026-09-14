@@ -1,0 +1,45 @@
+{
+  "_nota": "O site antigo não tinha página de associação, embora a missão cite 'Associados' repetidamente. Valores abaixo são ESTRUTURA — confirmar com a SBE antes de publicar.",
+  "plans": [
+    {
+      "slug": "individual",
+      "name": "Individual",
+      "price": "R$ TODO",
+      "period": "por mês",
+      "benefits": [
+        "Acesso a toda a rede credenciada",
+        "Descontos de até 35% em exames",
+        "Prioridade no agendamento de consultas",
+        "Sem carência para consultas e exames"
+      ]
+    },
+    {
+      "slug": "familiar",
+      "name": "Familiar",
+      "price": "R$ TODO",
+      "period": "por mês",
+      "highlight": true,
+      "benefits": [
+        "Tudo do plano Individual",
+        "Titular + até 4 dependentes",
+        "Descontos válidos para todos os dependentes",
+        "Sem carência para consultas e exames",
+        "Atendimento social prioritário à família"
+      ],
+      "note": "Plano mais procurado"
+    },
+    {
+      "slug": "empresarial",
+      "name": "Empresarial",
+      "price": "Sob consulta",
+      "period": "por colaborador",
+      "benefits": [
+        "Tudo do plano Familiar para cada colaborador",
+        "Gestão centralizada pelo RH",
+        "Faturamento único mensal",
+        "Ações de saúde preventiva na empresa"
+      ],
+      "note": "A partir de 5 vidas"
+    }
+  ]
+}

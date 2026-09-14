@@ -1,0 +1,31 @@
+{
+  "_nota": "Nomes extraídos da página /convenio do site antigo, onde apareciam apenas como imagens sem texto alternativo. Especialidades foram inferidas do nome de cada credenciado. ENDEREÇOS, TELEFONES E PERCENTUAIS DE DESCONTO PRECISAM SER CONFIRMADOS PELA SBE antes de publicar.",
+  "providers": [
+    { "slug": "hospital-sao-judas", "name": "Hospital São Judas", "specialties": ["Consultas clínicas", "Exames laboratoriais", "Raio X", "Tomografia"], "featured": true, "discount": 30 },
+    { "slug": "hospital-do-otorrino", "name": "Hospital do Otorrino", "specialties": ["Otorrinolaringologia", "Fonoaudiologia"], "featured": true, "discount": 25 },
+    { "slug": "instituto-de-olhos", "name": "Instituto de Olhos", "specialties": ["Oftalmologia"], "featured": true, "discount": 30 },
+    { "slug": "instituto-do-sono", "name": "Instituto do Sono", "specialties": ["Medicina do sono", "Otorrinolaringologia"], "discount": 20 },
+    { "slug": "cinecor", "name": "Cinecor", "specialties": ["Cardiologia"], "featured": true, "discount": 25 },
+    { "slug": "biocardios", "name": "Biocardios", "specialties": ["Cardiologia", "Exames laboratoriais"], "discount": 25 },
+    { "slug": "ecocenter", "name": "Ecocenter", "specialties": ["Cardiologia", "Ultrassonografia"], "discount": 25 },
+    { "slug": "gastroplast", "name": "Gastroplast", "specialties": ["Gastroenterologia"], "discount": 20 },
+    { "slug": "unigastro", "name": "Unigastro", "specialties": ["Gastroenterologia"], "discount": 20 },
+    { "slug": "imagens-medicina-diagnostica", "name": "Imagens Medicina Diagnóstica", "specialties": ["Ressonância magnética", "Tomografia", "Raio X", "Mamografia", "Ultrassonografia"], "featured": true, "discount": 35 },
+    { "slug": "diag", "name": "Diag", "specialties": ["Exames laboratoriais"], "discount": 30 },
+    { "slug": "diag-x", "name": "Diag-X", "specialties": ["Raio X", "Tomografia"], "discount": 30 },
+    { "slug": "lpc", "name": "LPC — Laboratório de Patologia Clínica", "specialties": ["Exames laboratoriais"], "featured": true, "discount": 35 },
+    { "slug": "ultracenter-saude", "name": "Ultracenter Saúde", "specialties": ["Ultrassonografia", "Mamografia"], "discount": 25 },
+    { "slug": "ultraprime", "name": "Ultraprime", "specialties": ["Ultrassonografia"], "discount": 25 },
+    { "slug": "usmedic", "name": "USMedic", "specialties": ["Ultrassonografia"], "discount": 20 },
+    { "slug": "venula", "name": "Vênula", "specialties": ["Cirurgia vascular", "Ultrassonografia"], "discount": 20 },
+    { "slug": "inac", "name": "INAC", "specialties": ["Cardiologia", "Cirurgia vascular"], "discount": 20 },
+    { "slug": "imedi", "name": "IMEDI", "specialties": ["Consultas clínicas", "Exames laboratoriais"], "discount": 25 },
+    { "slug": "acmed", "name": "ACMED", "specialties": ["Consultas clínicas"], "discount": 25 },
+    { "slug": "clinimedicis", "name": "Clinimedicis", "specialties": ["Consultas clínicas", "Nutrição"], "discount": 25 },
+    { "slug": "clinvida", "name": "Clinvida", "specialties": ["Consultas clínicas", "Psicologia", "Nutrição"], "discount": 25 },
+    { "slug": "clinica-ferrari", "name": "Clínica Ferrari", "specialties": ["Consultas clínicas", "Alergologia"], "discount": 20 },
+    { "slug": "clinica-luiz-augusto", "name": "Clínica Luiz Augusto", "specialties": ["Consultas clínicas", "Alergologia"], "discount": 20 },
+    { "slug": "multi-fisio", "name": "Multi Fisio", "specialties": ["Fisioterapia"], "discount": 30 },
+    { "slug": "reabilitar", "name": "Reabilitar", "specialties": ["Fisioterapia", "Fonoaudiologia"], "discount": 30 }
+  ]
+}

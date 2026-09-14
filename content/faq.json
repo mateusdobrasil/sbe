@@ -1,0 +1,12 @@
+{
+  "items": [
+    { "question": "Preciso ser associado para ser atendido?", "answer": "Não. A SBE atende associados e não associados. Os associados têm prioridade no agendamento e pagam valores menores, mas ninguém é recusado por não ser associado." },
+    { "question": "A SBE é um plano de saúde?", "answer": "Não. A SBE é uma Organização da Sociedade Civil sem fins lucrativos que mantém um Programa de Parceria na Assistência à Saúde. Isso significa valores negociados com clínicas e laboratórios credenciados, sem carência e sem limite de uso — mas não se trata de um plano de saúde regulado pela ANS." },
+    { "question": "Existe carência?", "answer": "Não há carência para consultas e exames na rede credenciada. Você pode usar o benefício desde o primeiro mês." },
+    { "question": "Como faço para agendar uma consulta?", "answer": "Pelo WhatsApp (65) 99200-3755 ou pelo telefone (65) 3644-2768, de segunda a sexta das 07h às 17h. Informe a especialidade desejada e nossa equipe confirma data e horário." },
+    { "question": "A SBE atende pessoas de qualquer religião?", "answer": "Sim. A SBE é uma instituição de origem evangélica, mas o atendimento é oferecido sem qualquer distinção de credo, origem ou condição social." },
+    { "question": "Para onde vai o dinheiro que eu doar?", "answer": "As doações sustentam os programas de assistência em saúde, o apoio a famílias em vulnerabilidade e a manutenção da sede. A destinação dos recursos é publicada na página de Transparência." },
+    { "question": "Posso doar alimentos, roupas ou equipamentos?", "answer": "Sim. Doações de produtos e serviços são aceitas e podem ser entregues na sede, na Av. dos Expedicionários, 65 — CPA IV. Entre em contato antes para combinar o recebimento." },
+    { "question": "Recebo recibo da minha doação?", "answer": "Sim. Envie o comprovante para doacaosocial@sbecuiaba.com.br com seu nome completo e CPF e emitimos o recibo." }
+  ]
+}
