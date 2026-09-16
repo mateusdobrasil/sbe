@@ -88,44 +88,6 @@ export default async function HomePage() {
         </div>
       </Section>
 
-      {/* Associação */}
-      <Section tone="deep" size="wide">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
-          <div>
-            <SectionHeader
-              eyebrow="Seja associado"
-              tone="dark"
-              title="Um valor mensal que abre a porta de toda a rede"
-              description="Associados têm prioridade no agendamento, descontos maiores e cobertura para dependentes — sem carência desde o primeiro mês."
-            />
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button href="/seja-associado" size="lg">
-                Ver planos e benefícios
-              </Button>
-              <Button href={whatsappLink("Olá! Quero saber como me associar à SBE.")} variant="onDark" size="lg">
-                <Icon name="whatsapp" className="size-5" />
-                Tirar dúvidas
-              </Button>
-            </div>
-          </div>
-
-          <ul className="grid gap-4 sm:grid-cols-2">
-            {[
-              { icon: "check" as const, title: "Sem carência", text: "Use o benefício já no primeiro mês." },
-              { icon: "users" as const, title: "Família inclusa", text: "Titular e até 4 dependentes no plano familiar." },
-              { icon: "clock" as const, title: "Prioridade", text: "Agendamento preferencial em consultas e exames." },
-              { icon: "shield" as const, title: "Sem limite de uso", text: "Quantos atendimentos você precisar." },
-            ].map((item) => (
-              <li key={item.title} className="rounded-2xl border border-white/15 bg-white/5 p-6">
-                <Icon name={item.icon} className="size-7 text-brand-400" />
-                <h3 className="mt-4 text-lg text-white">{item.title}</h3>
-                <p className="mt-1.5 leading-relaxed text-deep-100">{item.text}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </Section>
-
       {/* Doação */}
       <Section tone="brand" size="wide">
         <div className="grid items-center gap-12 lg:grid-cols-[1.2fr_1fr]">

@@ -86,7 +86,14 @@ export function Footer() {
                     CEP {site.address.zip}
                   </span>
                 </a>
-                <div className="space-y-2.5">
+                {/*
+                  min-w-0: sem isso, o e-mail — uma palavra sem espaço — força
+                  a largura mínima da coluna pelo seu tamanho inteiro e vaza
+                  por cima da coluna de horários ao lado. overflow-wrap sozinho
+                  não resolve: ele só entra em ação depois que o item já pode
+                  encolher.
+                */}
+                <div className="min-w-0 space-y-2.5">
                   <a href={`tel:${site.phone.tel}`} className="flex min-h-10 items-center gap-3 hover:text-brand-300">
                     <Icon name="phone" className="size-5 shrink-0 text-brand-400" />
                     {site.phone.display}
@@ -97,7 +104,7 @@ export function Footer() {
                   </a>
                   <a href={`mailto:${site.email.general}`} className="flex min-h-10 items-center gap-3 hover:text-brand-300">
                     <Icon name="mail" className="size-5 shrink-0 text-brand-400" />
-                    {site.email.general}
+                    <span className="min-w-0 break-all">{site.email.general}</span>
                   </a>
                 </div>
                 <ul className="space-y-1.5">

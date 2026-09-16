@@ -145,6 +145,18 @@ export function Header() {
                     </Link>
                   </li>
                 ))}
+                {/* Instagram logo após o último item (Contato) na mesma lista. */}
+                <li>
+                  <a
+                    href={site.social.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram da SBE"
+                    className="flex min-h-10 items-center rounded-full px-2.5 text-ink-soft transition-colors hover:bg-paper-alt hover:text-ink xl:px-3"
+                  >
+                    <Icon name="instagram" className="size-5" />
+                  </a>
+                </li>
               </ul>
             </nav>
 
@@ -217,6 +229,19 @@ export function Header() {
                   <MobileLink item={item} active={isActive(item.href)} />
                 </li>
               ))}
+              {/* Instagram logo abaixo do último item (Contato), na mesma lista. */}
+              <li>
+                <a
+                  href={site.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex min-h-11 items-center gap-3 rounded-xl px-4 py-3 transition-colors hover:bg-paper-alt"
+                >
+                  <Icon name="instagram" className="size-5 text-brand-600" />
+                  <span className="font-semibold text-ink">Instagram</span>
+                  <span className="text-ink-mute">{site.social.instagramHandle}</span>
+                </a>
+              </li>
             </ul>
 
             <p className="mt-5 px-4 pb-2 text-xs font-bold tracking-wider text-ink-mute uppercase">
@@ -244,7 +269,7 @@ export function Header() {
             <div className="mt-5 flex flex-col gap-3 border-t border-line pt-5 text-sm sm:flex-row sm:items-center sm:justify-between">
               <a
                 href={`tel:${site.phone.tel}`}
-                className="flex items-center gap-2 font-semibold text-deep-800"
+                className="flex min-h-11 items-center gap-2 font-semibold text-deep-800"
               >
                 <Icon name="phone" className="size-4 text-brand-600" />
                 {site.phone.display}

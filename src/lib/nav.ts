@@ -14,11 +14,16 @@ export interface NavItem {
  * eu consigo aqui?".
  */
 
-/** Barra principal: o que a pessoa vem buscar. */
+/**
+ * Barra principal: o que a pessoa vem buscar.
+ *
+ * "Seja associado" removido por enquanto — o programa de associação ainda
+ * não existe. A página /seja-associado continua no ar para quem acessar o
+ * link direto; ela só não é mais anunciada na navegação.
+ */
 export const mainNav: NavItem[] = [
   { label: "Serviços", href: "/servicos", description: "Consultas, exames e assistência social" },
   { label: "Rede credenciada", href: "/rede-credenciada", description: "26 clínicas e laboratórios parceiros" },
-  { label: "Seja associado", href: "/seja-associado", description: "Planos e benefícios" },
   { label: "Transparência", href: "/transparencia", description: "Prestação de contas e documentos" },
   { label: "Contato", href: "/contato", description: "Endereço, horários e formulário" },
 ];

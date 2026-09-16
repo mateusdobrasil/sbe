@@ -94,6 +94,7 @@ export const site = {
 
   social: {
     instagram: "https://www.instagram.com/sbe_mt/",
+    instagramHandle: "@sbe_mt",
     facebook: "https://www.facebook.com/sbemt/",
   },
 } as const;
