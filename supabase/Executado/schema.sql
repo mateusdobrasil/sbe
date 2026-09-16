@@ -105,6 +105,12 @@ create table if not exists public.posts (
 create index if not exists posts_published_date_idx
   on public.posts (published, date desc);
 
+-- content_md guarda o Markdown de origem editado no painel; content guarda
+-- o HTML já renderizado a partir dele, que é o que as páginas do site leem.
+-- Rodar em separado (não dentro do create table) porque a tabela já existia
+-- antes desta coluna ser criada.
+alter table public.posts add column if not exists content_md text;
+
 -- ─── Formulários (escrita pelo servidor, leitura só pela equipe) ────────────
 
 create table if not exists public.leads (
@@ -122,6 +128,22 @@ create index if not exists leads_created_idx on public.leads (created_at desc);
 comment on table public.leads is
   'Mensagens enviadas pelos formulários do site. Contém dado pessoal — tratar conforme a LGPD.';
 
+-- ─── Auditoria do painel administrativo ─────────────────────────────────────
+
+create table if not exists public.audit_log (
+  id          bigint generated always as identity primary key,
+  created_at  timestamptz not null default now(),
+  actor       text not null,
+  action      text not null check (action in ('create','update','delete')),
+  resource    text not null,
+  resource_id text not null,
+  summary     text not null,
+  changes     jsonb
+);
+create index if not exists audit_log_created_idx on public.audit_log (created_at desc);
+comment on table public.audit_log is
+  'Quem criou, alterou ou excluiu o quê no painel administrativo. Só a service role grava e lê — nunca exposta ao público nem ao cliente autenticado comum.';
+
 -- ============================================================================
 --  Row Level Security
 -- ============================================================================
@@ -136,6 +158,7 @@ alter table public.faq               enable row level security;
 alter table public.membership_plans  enable row level security;
 alter table public.posts             enable row level security;
 alter table public.leads             enable row level security;
+alter table public.audit_log         enable row level security;
 
 -- Conteúdo institucional: qualquer visitante pode ler.
 do $$
@@ -164,16 +187,16 @@ create policy "leitura publica de posts publicados"
 -- anon vazada não expõe dado pessoal nenhum.
 drop policy if exists "sem leitura publica de leads" on public.leads;
 
--- ============================================================================
---  Carga inicial mínima
---  O restante do conteúdo pode ser importado de /content via CSV no Studio.
--- ============================================================================
+-- Auditoria: mesma lógica de leads — sem política nenhuma para anon ou
+-- authenticated. Só a service role (usada pelo painel) lê e grava.
 
-insert into public.faq (question, answer, sort_order) values
-  ('Preciso ser associado para ser atendido?',
-   'Não. A SBE atende associados e não associados. Os associados têm prioridade no agendamento e pagam valores menores, mas ninguém é recusado por não ser associado.', 1),
-  ('A SBE é um plano de saúde?',
-   'Não. A SBE é uma Organização da Sociedade Civil sem fins lucrativos que mantém um Programa de Parceria na Assistência à Saúde, com valores negociados junto a clínicas e laboratórios credenciados. Não se trata de plano de saúde regulado pela ANS.', 2),
-  ('Existe carência?',
-   'Não há carência para consultas e exames na rede credenciada. Você pode usar o benefício desde o primeiro mês.', 3)
-on conflict do nothing;
+-- ============================================================================
+--  Carga de conteúdo
+--
+--  Não há INSERT aqui de propósito: uma carga fixa neste arquivo duplicava
+--  dados toda vez que o script era reaplicado (foi exatamente isso que
+--  encheu a tabela `faq` de linhas repetidas antes). A carga inicial e as
+--  atualizações em lote são feitas por `npm run seed`, que é idempotente
+--  (apaga e reinsere as tabelas sem chave natural antes de gravar). Edições
+--  do dia a dia acontecem pelo painel em /admin.
+-- ============================================================================

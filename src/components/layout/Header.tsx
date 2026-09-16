@@ -55,6 +55,10 @@ export function Header() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  // O painel administrativo tem sua própria navegação — não a do site público.
+  // Vem depois dos hooks de propósito: hooks não podem ser condicionais.
+  if (pathname.startsWith("/admin")) return null;
+
   return (
     <header className="sticky top-0 z-50">
       {/* ── Barra superior: institucional + contato ───────────────────── */}

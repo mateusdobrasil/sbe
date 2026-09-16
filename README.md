@@ -59,8 +59,9 @@ Dados de contato, endereço, horários, redes sociais e chave PIX ficam em
 ## Configurando o Supabase
 
 1. Crie um projeto em [supabase.com](https://supabase.com).
-2. No **SQL Editor**, cole e execute `supabase/schema.sql`. Isso cria as tabelas,
-   os índices e as políticas de RLS.
+2. No **SQL Editor**, cole e execute `supabase/Executado/schema.sql` — na primeira vez
+   isso cria as tabelas, os índices e as políticas de RLS. (Sobre a pasta, veja a
+   convenção logo abaixo.)
 3. Copie as chaves em *Project Settings → API* para `.env.local`:
 
    ```env
@@ -77,6 +78,15 @@ Dados de contato, endereço, horários, redes sociais e chave PIX ficam em
 
 5. Quando estiver conferido, mude para `CONTENT_SOURCE=supabase`.
 
+### Convenção da pasta `supabase/`
+
+- **`supabase/*.sql`** — SQL novo, ainda **não** rodado contra o banco de produção.
+  Sempre que uma alteração de schema for necessária, o arquivo entra aqui primeiro
+  para revisão.
+- **`supabase/Executado/*.sql`** — SQL que já foi colado e rodado no SQL Editor do
+  Supabase. Depois de rodar um arquivo, mova-o para esta pasta — é o jeito que o
+  projeto usa para saber, só de olhar, o que já foi aplicado ao banco real.
+
 ### Sobre segurança
 
 - `SUPABASE_SERVICE_ROLE_KEY` **nunca** pode receber o prefixo `NEXT_PUBLIC_`.
@@ -88,11 +98,77 @@ Dados de contato, endereço, horários, redes sociais e chave PIX ficam em
 
 ---
 
+## Painel administrativo (`/admin`)
+
+A equipe da SBE edita notícias, rede credenciada, serviços, diretoria, planos,
+FAQ, depoimentos e as mensagens recebidas do site direto pelo navegador, sem
+mexer em código. Precisa do Supabase configurado (seção acima) — sem ele o
+painel abre, mas nenhuma tela consegue ler ou gravar dado nenhum.
+
+### Configurar o acesso
+
+Duas variáveis, sem tabela de usuários nem cadastro:
+
+```env
+# "usuario1:senha1,usuario2:senha2" — uma pessoa a mais é só uma vírgula a mais
+ADMIN_USERS=admin:uma-senha-forte-aqui
+
+# assina o cookie de sessão — gere com `openssl rand -hex 32`
+ADMIN_SESSION_SECRET=<64 caracteres aleatórios>
+```
+
+Sem `ADMIN_SESSION_SECRET` definido (ou curto demais), o login recusa entrar
+em vez de usar um segredo fraco por padrão.
+
+### O que dá para gerenciar
+
+| Seção | Tabela | Chave |
+|---|---|---|
+| Notícias | `posts` | slug |
+| Rede credenciada | `providers` | slug |
+| Serviços | `services` | slug |
+| Diretoria | `leaders` | id |
+| Planos de associação | `membership_plans` | slug |
+| Perguntas frequentes | `faq` | id |
+| Depoimentos | `testimonials` | id |
+| Mensagens recebidas | `leads` | id (só leitura + marcar atendida/excluir) |
+| Auditoria | `audit_log` | — (somente leitura) |
+
+As notícias têm editor de Markdown com prévia ao vivo (`content_md` guarda a
+fonte; `content` guarda o HTML já renderizado, que é o que o site público lê —
+a conversão acontece uma vez, ao salvar, não a cada visita).
+
+Cada criação, edição e exclusão fica registrada em **Auditoria**
+(`/admin/auditoria`), com quem fez, quando, o quê e os valores gravados —
+filtrável por recurso e por tipo de ação.
+
+### Como funciona por baixo
+
+- **Sessão:** um cookie HTTP-only assinado com HMAC-SHA256 (Web Crypto API,
+  não Supabase Auth) — simples de propósito, dado que é uma equipe pequena
+  entrando ocasionalmente. `src/lib/admin/session.ts`.
+- **Proteção de rota:** `src/middleware.ts` barra qualquer `/admin/**` sem
+  sessão válida, preservando a URL de destino para depois do login.
+- **Escrita:** Server Actions usando a service role do Supabase (ignora RLS
+  deliberadamente — o controle de acesso é "está logado no painel", não uma
+  política de banco por linha).
+- **Logout é uma rota comum (`/api/admin/logout`), não uma Server Action.**
+  Isso não é estético: no Next.js 16.3.5, ter uma Server Action no layout
+  compartilhado (logout) e OUTRA na página (criar/editar/excluir) fazia o
+  navegador enviar o ID de referência errado — a sessão era encerrada no meio
+  de qualquer criação ou edição normal. Tirar o logout do mecanismo de Server
+  Actions elimina a colisão. Novas páginas do painel podem usar Server Actions
+  à vontade; o que não deve voltar é uma **segunda função de Server Action
+  diferente vivendo no layout**.
+
+---
+
 ## Deploy na Vercel
 
 1. Conecte o repositório na Vercel — o Next.js é detectado automaticamente.
-2. Em *Settings → Environment Variables*, adicione as quatro variáveis do
-   `.env.example`, com `NEXT_PUBLIC_SITE_URL=https://sbecuiaba.com.br`.
+2. Em *Settings → Environment Variables*, adicione as variáveis do
+   `.env.example` — Supabase, `NEXT_PUBLIC_SITE_URL=https://sbecuiaba.com.br`
+   e as duas do painel administrativo (`ADMIN_USERS`, `ADMIN_SESSION_SECRET`).
 3. Aponte o domínio em *Settings → Domains*.
 
 ### Migração do WordPress
@@ -117,9 +193,18 @@ Console.
 
 ```
 src/
+  middleware.ts           protege as rotas /admin/**
   app/                    rotas (App Router)
+    admin/
+      login/              tela de login (fora do layout protegido)
+      (protected)/        layout com sidebar — dashboard e um diretório por recurso
+        rede-credenciada/ servicos/ diretoria/ planos/ faq/ depoimentos/
+        noticias/         editor de Markdown com prévia ao vivo
+        mensagens/        caixa de entrada dos formulários (leads)
+        auditoria/        histórico de criação/edição/exclusão
     api/pix/              gera o BR Code e o QR de doação
     api/contato/          recebe os formulários e grava em `leads`
+    api/admin/logout/     encerra a sessão do painel (rota comum, não Server Action)
     opengraph-image.tsx   imagem de compartilhamento gerada em build
   components/
     layout/               cabeçalho, rodapé, logo, hero de página
@@ -129,12 +214,15 @@ src/
     doe/                  caixa de doação PIX
     forms/                formulário de contato reutilizável
     common/               WhatsApp, cookies, JSON-LD
+    admin/                campos de formulário, editor de Markdown, exclusão com confirmação
   lib/
     site.ts               dados da instituição (fonte única)
     nav.ts                menus
     pix.ts                gerador de BR Code (EMV + CRC16)
+    markdown.ts           Markdown → HTML, usado pelo conteúdo local e pelo painel
     content/              adaptadores de conteúdo
-supabase/schema.sql       esquema e RLS
+    admin/                sessão do painel e log de auditoria
+supabase/Executado/schema.sql  esquema e RLS (nome da pasta: convenção própria do projeto)
 scripts/seed-supabase.mjs carga do conteúdo para o banco
 ```
 

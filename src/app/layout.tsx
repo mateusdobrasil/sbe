@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppFab } from "@/components/common/WhatsAppFab";
 import { CookieConsent } from "@/components/common/CookieConsent";
+import { ChromeGate } from "@/components/common/ChromeGate";
 import { JsonLd } from "@/components/common/JsonLd";
 import { site, fullAddress } from "@/lib/site";
 
@@ -125,10 +126,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <Header />
         <main id="conteudo">{children}</main>
-        <Footer />
+        <ChromeGate>
+          <Footer />
+        </ChromeGate>
 
-        <WhatsAppFab />
-        <CookieConsent />
+        <ChromeGate>
+          <WhatsAppFab />
+          <CookieConsent />
+        </ChromeGate>
         <JsonLd data={organizationSchema} />
       </body>
     </html>
