@@ -47,6 +47,19 @@ async function upsert(table, rows, conflictKey) {
     console.log(`  ${table}: nada a inserir`);
     return;
   }
+
+  // Tabelas sem chave natural (id autoincremento apenas) não têm o que
+  // usar como onConflict: um upsert vira INSERT puro, e rodar o script
+  // duas vezes duplica cada linha. Como este script é a fonte de verdade
+  // para essas tabelas, o jeito seguro de repetir é limpar antes de inserir.
+  if (!conflictKey) {
+    const { error: delError } = await db.from(table).delete().gte("id", 0);
+    if (delError) {
+      console.error(`  ${table}: FALHOU ao limpar antes de inserir — ${delError.message}`);
+      return;
+    }
+  }
+
   const { error } = await db.from(table).upsert(rows, conflictKey ? { onConflict: conflictKey } : {});
   if (error) {
     console.error(`  ${table}: FALHOU — ${error.message}`);
@@ -58,7 +71,15 @@ async function upsert(table, rows, conflictKey) {
 console.log("Carregando conteúdo para o Supabase…\n");
 
 const { providers } = await json("rede-credenciada.json");
-await upsert("providers", providers, "slug");
+// "featured" é not-null no schema, mas só os credenciados em destaque têm a
+// chave no JSON. Num upsert em lote, o Postgrest envia NULL explícito para
+// a chave ausente em vez de aplicar o DEFAULT da coluna — por isso o valor
+// precisa vir preenchido aqui antes de enviar.
+await upsert(
+  "providers",
+  providers.map((p) => ({ ...p, featured: p.featured ?? false })),
+  "slug",
+);
 
 const { services } = await json("servicos.json");
 await upsert(

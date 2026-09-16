@@ -53,8 +53,8 @@ export const site = {
   tagline: "Cuidado em saúde ao alcance de quem precisa",
   url: resolveSiteUrl(),
 
-  // TODO SBE: confirmar CNPJ e data de fundação — não constam no site atual.
-  cnpj: "00.000.000/0001-00",
+  cnpj: "03.750.486/0001-73 (Matriz)",
+  // TODO SBE: confirmar o ano de fundação — não consta no site atual.
   foundedYear: 1998,
 
   verse: {

@@ -76,6 +76,9 @@ const organizationSchema = {
   description:
     "Organização da Sociedade Civil sem fins lucrativos que oferece assistência em saúde e amparo social a famílias em Cuiabá/MT.",
   foundingDate: String(site.foundedYear),
+  // taxID é só o número — o "(Matriz)" em site.cnpj é qualificador para
+  // exibição humana, não faz parte do identificador fiscal em si.
+  taxID: site.cnpj.replace(/\s*\(.*\)\s*$/, ""),
   email: site.email.general,
   telephone: site.phone.tel,
   address: {
